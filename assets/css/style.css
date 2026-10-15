@@ -1094,6 +1094,8 @@ img {
   font-size: 0.88rem;
   font-weight: 500;
   transition: var(--transition);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .kudos-btn:hover {
@@ -1910,6 +1912,14 @@ img {
   .sound-box {
     padding: 24px;
   }
+  .weekly-stats-container {
+    padding: 24px 16px;
+  }
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
   .compare-img-wrap img {
     height: 320px;
   }
@@ -1919,8 +1929,11 @@ img {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
   .section {
-    padding: 60px 0;
+    padding: 56px 0;
   }
   .hero-title {
     font-size: 1.95rem;
@@ -1967,7 +1980,34 @@ img {
     font-size: 2.3rem;
   }
   .chart-bars-grid {
-    gap: 8px;
+    gap: 6px;
     height: 180px;
+  }
+  .bar-val-tooltip {
+    font-size: 0.65rem;
+    letter-spacing: -0.03em;
+  }
+  .bar-label {
+    font-size: 0.78rem;
+  }
+  .activity-card {
+    padding: 18px 16px;
+  }
+  .activity-card-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .activity-metrics-strip {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+  .activity-metric-unit {
+    font-size: 0.68rem;
+  }
+  .activity-metric-num {
+    font-size: 1.05rem;
+  }
+  .weekly-stats-container {
+    padding: 20px 14px;
   }
 }
