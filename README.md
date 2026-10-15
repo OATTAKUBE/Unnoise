@@ -1,32 +1,35 @@
-# Unnoise — หมอนสุขภาพอัจฉริยะ & Strava Sleep Community (v2.0)
+# Unnoise — หมอนสุขภาพอัจฉริยะ, Strava Sleep Community & Store (v3.0)
 
-ต้นแบบหน้าเว็บไซต์ธุรกิจและระบบจำลองสุขภาพการนอนหลับสไตล์ **Strava + Apple Health** (High-Fidelity UI Model) สำหรับใช้ส่งงานและนำเสนอต่ออาจารย์
+ต้นแบบหน้าเว็บไซต์ธุรกิจ, ระบบจำลองสุขภาพการนอนหลับสไตล์ **Strava + Apple Health** และระบบร้านค้าพร้อม **Pillow Finder Quiz** (High-Fidelity UI Model) สำหรับใช้ส่งงานและนำเสนอต่ออาจารย์
 
 ---
 
-## 📌 จุดเด่นและนวัตกรรมใหม่ในเวอร์ชัน 2.0
-1. **ธีมใหม่: Minimalist Royal Navy & Crisp White**:
-   - ปรับชุดสีเป็นน้ำเงินเข้ม Royal Navy (`#1E3A8A`), Tech Blue (`#2563EB`) บนพื้นขาวคลีนสไตล์ Sport-Tech สุขภาพระดับโลก
-2. **Weekly Sleep Volume & Stats (สถิติปริมาณการนอนสไตล์ Strava)**:
-   - กราฟแท่งรายสัปดาห์ (จันทร์ - อาทิตย์) เทียบกับเส้นประเป้าหมาย 8 ชั่วโมง (Goal Line)
-   - สรุปชั่วโมงนอนรวมทั้งสัปดาห์ (56 ชม. 50 น.)
-   - Sleep Consistency Streak (รักษาวินัยการนอนต่อเนื่อง 14 วันติด 🔥)
-   - ดัชนี Sleep Recovery Index (94%)
-3. **Unnoise Sleep Club / Community Feed (คอมมูนิตี้สไตล์ Strava)**:
-   - ฟีดแชร์กิจกรรมการนอนของเพื่อนในกลุ่ม (เช่น คืนฟื้นฟูหลังวิ่ง 10K, คืนพักผ่อนเต็มอิ่ม)
-   - **Interactive Kudos Button**: ปุ่มกดให้กำลังใจ/ปรบมือให้เพื่อน เมื่อคลิกตัวเลขจะเพิ่มขึ้นแบบ Real-time พร้อม Micro-animation
-   - Monthly Leaderboard (กระดานคะแนนการนอนอันดับ 1-4)
-   - Weekly Club Challenges (เช่น 7-Day Restorative Sleep, Snore-Free Nights)
-4. **Interactive Sleep Dashboard Simulator**:
-   - จำลองสถิติสุขภาพยามค่ำคืน (BPM, การกรน, ระยะการนอน 4 สเตจ, Sleep Score)
-   - กราฟคลื่นหัวใจ Real-time Pulse Wave เต้นสดบน Canvas
-5. **In-Browser Sound Therapy Simulator**:
-   - สังเคราะห์คลื่นเสียงสดจริงผ่าน **Web Audio API** (สายฝน Gentle Rain, Pink Noise หลับลึก, เสียงลมธรรมชาติ)
+## 📌 จุดเด่นและนวัตกรรมใหม่ในเวอร์ชัน 3.0
+1. **หน้าร้านค้าและรายการสินค้าครบวงจร (`shop.html`)**:
+   - แสดงรายการสินค้า 4 ชนิด พร้อมสเปกเด่นและภาพถ่ายสินค้าจริง:
+     - **Unnoise Pro Sound & Air** (฿7,990) — รุ่นท็อปถุงลมแก้กรน + ลำโพงคลื่นกระดูก
+     - **Unnoise Essential** (฿4,990) — รุ่นมาตรฐานวัดคลื่นหัวใจ BCG 99.2%
+     - **Unnoise Travel Compact** (฿3,490) — หมอนพกพาม้วนเก็บได้สำหรับนักเดินทางและนักกีฬา
+     - **Unnoise Cooling Silk Pillowcase** (฿1,290) — ปลอกหมอนใยไหมแท้ผสมเจลเย็น
+   - ระบบแท็บกรองสินค้า (ทั้งหมด, หมอนอัจฉริยะ, หมอนพกพา, อุปกรณ์เสริม)
+2. **Interactive Pillow Finder Quiz (แบบสอบถามค้นหาหมอนที่เหมาะกับคุณ)**:
+   - ผู้ใช้ตอบคำถาม 3 ข้อสั้นๆ (ท่านอน, ปัญหาการนอน, สัมผัสความแน่นที่ชอบ)
+   - ระบบประมวลผลคำนวณ **Match Score** (เช่น แมตช์ 98%) แนะนำสเปกความสูงและความแน่น พร้อมปุ่มกดสั่งจองรุ่นนั้นทันที
+3. **ธีม Minimalist Royal Navy & Crisp White**:
+   - สไตล์ Sport-Tech สุขภาพพรีเมียม สบายตาและล้ำสมัย
+4. **Weekly Sleep Volume & Stats (สถิติสัปดาห์สไตล์ Strava)**:
+   - กราฟแท่งรายสัปดาห์เทียบกับเส้นเป้าหมาย 8 ชั่วโมง (Goal Line)
+   - สรุปชั่วโมงนอนสัปดาห์ (56 ชม. 50 น.) และ Streak การนอนตรงเวลา 14 วันติด 🔥
+5. **Unnoise Sleep Club / Community Feed**:
+   - ฟีดกิจกรรมการนอนของเพื่อน และปุ่มกดให้ **Kudos** แบบ Interactive
+6. **In-Browser Sound Therapy Simulator (White/Pink Noise)**:
+   - สังเคราะห์คลื่นเสียงสดจริงผ่าน **Web Audio API**
 
 ---
 
 ## 🚀 วิธีเปิดใช้งาน
-- **เปิดตรงผ่านเบราว์เซอร์**: ดับเบิลคลิกที่ไฟล์ `index.html` เพื่อเปิดใช้งานได้ทันทีบน Google Chrome, Microsoft Edge, Safari หรือ Firefox
+- **หน้าแรก (Landing & Community)**: เปิดไฟล์ `index.html`
+- **หน้าร้านค้า (Store & Pillow Quiz)**: เปิดไฟล์ `shop.html` หรือคลิกปุ่ม "ร้านค้า" จากหน้าแรก
 - หรือเปิดผ่าน local server: `python -m http.server 8000`
 
 ---
@@ -34,19 +37,21 @@
 ## 📂 โครงสร้างเอกสารเชิงวิศวกรรม (Docs & ADRs)
 ```
 peem/
-├── index.html                   # โครงสร้างหน้าเว็บหลัก (v2.0)
+├── index.html                   # หน้าแรก Landing & Community (v3.0)
+├── shop.html                    # หน้าร้านค้า & Pillow Finder Quiz (v3.0)
 ├── assets/
 │   ├── css/style.css            # ดีไซน์โทนน้ำเงิน-ขาว สไตล์ Strava + Apple Health
-│   ├── js/app.js                # ตรรกะระบบ Interactive Dashboard, Kudos & Web Audio
-│   └── img/                     # ภาพถ่าย 3D สินค้าจริงของหมอน Unnoise
+│   ├── js/app.js                # ตรรกะ Interactive Dashboard, Kudos & Pillow Quiz
+│   └── img/                     # ภาพถ่าย 3D สินค้าจริง (Pro, Travel, Silk Case)
 ├── docs/
 │   ├── glossary.md              # Domain Glossary รวมคำศัพท์ผลิตภัณฑ์ & คอมมูนิตี้
-│   ├── requirements.md          # เอกสารความต้องการระบบ (Requirements v2.0)
-│   ├── design.md                # เอกสารระบบการออกแบบ (Design Spec v2.0)
+│   ├── requirements.md          # เอกสารความต้องการระบบ (Requirements v3.0)
+│   ├── design.md                # เอกสารระบบการออกแบบ (Design Spec v3.0)
 │   ├── decision-log.md          # บันทึกประวัติการตัดสินใจในการพัฒนา
 │   └── adr/
 │       ├── 0001-project-scope-and-architecture.md
 │       ├── 0002-interactive-simulator-and-audio.md
-│       └── 0003-strava-community-and-blue-theme.md # การตัดสินใจธีมสีน้ำเงินและ Strava
+│       ├── 0003-strava-community-and-blue-theme.md
+│       └── 0004-dedicated-shop-and-recommendation-quiz.md
 └── README.md
 ```

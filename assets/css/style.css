@@ -2011,3 +2011,364 @@ img {
     padding: 20px 14px;
   }
 }
+
+/* ==========================================================================
+   Shop Catalog & Pillow Finder Quiz Styles (NEW)
+   ========================================================================== */
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.filter-pill:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.filter-pill.active {
+  background: var(--primary-blue);
+  color: #FFFFFF;
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+/* Product Catalog Grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.product-shop-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-shop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: #BFDBFE;
+}
+
+.product-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #E2E8F0;
+  overflow: hidden;
+}
+
+.product-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-shop-card:hover .product-thumb-wrap img {
+  transform: scale(1.04);
+}
+
+.product-category-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-shop-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-shop-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+}
+
+.product-shop-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.product-short-specs {
+  list-style: none;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spec-bullet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-main);
+}
+
+.spec-bullet i {
+  color: var(--primary-blue);
+  font-size: 1rem;
+}
+
+.product-bottom-action {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price-display {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+/* Pillow Finder Quiz Container */
+.quiz-section {
+  background: linear-gradient(180deg, var(--bg-main) 0%, #EFF6FF 100%);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quiz-card-shell {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.quiz-progress-track {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--primary-blue);
+  width: 33.33%;
+  transition: width 0.4s ease;
+}
+
+.quiz-step-indicator {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.quiz-question-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+}
+
+.quiz-question-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.quiz-opt-btn {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.quiz-opt-btn:hover {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-subtle);
+  transform: translateY(-2px);
+}
+
+.quiz-opt-btn.selected {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-light);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+}
+
+.quiz-opt-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-opt-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.quiz-opt-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Quiz Result Box */
+.quiz-result-view {
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.quiz-result-view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.match-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: #DCFCE7;
+  color: #15803D;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.result-card-inner {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+  text-align: left;
+}
+
+.result-rec-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.result-rec-img {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.result-rec-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 6px;
+}
+
+.result-rec-specs {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.result-rec-price {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+/* Responsive for Shop & Quiz */
+@media (max-width: 768px) {
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+  }
+  .quiz-card-shell {
+    padding: 24px 18px;
+  }
+  .result-rec-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .result-rec-img {
+    margin: 0 auto;
+  }
+}
+

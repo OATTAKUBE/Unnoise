@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initStravaCommunity();
   initPreorderModal();
   initSmoothScroll();
+  initShopFilters();
+  initPillowFinderQuiz();
 });
 
 /* ==========================================================================
@@ -508,6 +510,12 @@ function initPreorderModal() {
     if (modelSelect.value === 'essential') {
       summaryModel.textContent = 'Unnoise Essential (รุ่นมาตรฐาน)';
       summaryPrice.textContent = '฿4,990';
+    } else if (modelSelect.value === 'travel') {
+      summaryModel.textContent = 'Unnoise Travel Compact (รุ่นพกพา)';
+      summaryPrice.textContent = '฿3,490';
+    } else if (modelSelect.value === 'case') {
+      summaryModel.textContent = 'Unnoise Cooling Silk Pillowcase (ปลอกหมอนใยไหม)';
+      summaryPrice.textContent = '฿1,290';
     } else {
       summaryModel.textContent = 'Unnoise Pro Sound & Air (รุ่นท็อปพร้อมระบบเสียง)';
       summaryPrice.textContent = '฿7,990';
@@ -576,4 +584,203 @@ function initMobileMenu() {
       if (icon) icon.className = 'bi bi-list';
     });
   });
+}
+
+/* ==========================================================================
+   7. Shop Catalog Filters
+   ========================================================================== */
+function initShopFilters() {
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const productCards = document.querySelectorAll('.product-shop-card');
+
+  if (!filterPills.length || !productCards.length) return;
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.getAttribute('data-filter');
+
+      productCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   8. Interactive Pillow Finder Quiz
+   ========================================================================== */
+const quizQuestions = [
+  {
+    step: 1,
+    title: '1. ท่านอนหลักที่คุณคุ้นเคยที่สุดคือท่าใด?',
+    subtitle: 'เพื่อกำหนดระดับความสูงและแนวรองรับกระดูกต้นคอที่ถูกต้องตามหลักสรีรศาสตร์',
+    options: [
+      { id: 'back', icon: 'bi-person', title: 'นอนหงายเป็นหลัก', desc: 'ต้องการหมอนรองรับความโค้งของกระดูกสันหลังและคอระดับปานกลาง' },
+      { id: 'side', icon: 'bi-person-arms-up', title: 'นอนตะแคงข้าง', desc: 'ต้องการหมอนที่สูงพอดีกับความกว้างของไหล่เพื่อไม่ให้คอพับ' },
+      { id: 'stomach', icon: 'bi-arrow-down-circle', title: 'นอนคว่ำหน้า', desc: 'ต้องการหมอนที่มีความสูงต่ำพิเศษ เพื่อไม่ให้กล้ามเนื้อคอเกร็ง' },
+      { id: 'toss', icon: 'bi-arrow-repeat', title: 'พลิกตัวบ่อยตลอดคืน', desc: 'ต้องการหมอนทรง Ergonomic แบบ Dynamic ที่รองรับทั้งนอนหงายและตะแคง' }
+    ]
+  },
+  {
+    step: 2,
+    title: '2. ปัญหาการนอนที่คุณต้องการแก้ไขมากที่สุด?',
+    subtitle: 'ระบบจะเลือกฟังก์ชันเซนเซอร์และการปรับตัวของหมอนให้ตรงจุด',
+    options: [
+      { id: 'snore', icon: 'bi-soundwave', title: 'มีอาการนอนกรน / หายใจติดขัด', desc: 'ต้องการระบบตรวจจับเสียงกรนและถุงลมไมโครแอร์แบ็กช่วยเปิดทางเดินหายใจ' },
+      { id: 'neck', icon: 'bi-heart-pulse', title: 'ตื่นมาปวดเมื่อยคอ บ่า ไหล่', desc: 'ต้องการเมมโมรี่โฟมความหนาแน่นสูงกระจายแรงกดทับอย่างนุ่มนวล' },
+      { id: 'noise', icon: 'bi-volume-up', title: 'หลับยากจากเสียงรบกวนภายนอก', desc: 'ต้องการลำโพงคลื่นกระดูก Bone-Conduction ส่งคลื่นเสียงบำบัดกลบเสียง' },
+      { id: 'travel', icon: 'bi-briefcase', title: 'เดินทางบ่อย / ต้องการพกพา', desc: 'ต้องการหมอนขนาดกะทัดรัดที่ม้วนเก็บง่ายและมีเซนเซอร์ติดตาม' }
+    ]
+  },
+  {
+    step: 3,
+    title: '3. คุณชอบสัมผัสความแน่นและอุณหภูมิแบบไหน?',
+    subtitle: 'เลือกสเปกเนื้อสัมผัสและปลอกหมอนที่ตรงใจคุณที่สุด',
+    options: [
+      { id: 'medium-cool', icon: 'bi-snow', title: 'นุ่มแน่นกำลังดี + เย็นสบาย', desc: 'เมมโมรี่โฟมบาลานซ์ พร้อมผ้าใยไหมผสมเจลเย็นระบายอากาศ' },
+      { id: 'soft-wrap', icon: 'bi-cloud', title: 'นุ่มละมุนโอบกระชับ', desc: 'โอบรับศีรษะอย่างอ่อนโยน ผ่อนคลายความตึงเครียดของกล้ามเนื้อ' },
+      { id: 'firm-support', icon: 'bi-shield-check', title: 'แน่นกระชับ รองรับคอพิเศษ', desc: 'แกนยางพาราธรรมชาติผสมชาร์โคล รองรับแนวกระดูกสันหลังตรงเป๊ะ' },
+      { id: 'compact-light', icon: 'bi-bag', title: 'น้ำหนักเบา พับเก็บเร็ว', desc: 'โฟมความยืดหยุ่นสูงพิเศษ คืนรูปทันทีเมื่อคลี่ออก' }
+    ]
+  }
+];
+
+let quizCurrentStep = 0;
+let userAnswers = {};
+
+function initPillowFinderQuiz() {
+  const quizContainer = document.getElementById('pillow-quiz-shell');
+  if (!quizContainer) return;
+
+  renderQuizStep(quizCurrentStep);
+}
+
+function renderQuizStep(stepIndex) {
+  const questionBox = document.getElementById('quiz-questions-view');
+  const resultBox = document.getElementById('quiz-result-view');
+  const progressFill = document.getElementById('quiz-progress-fill');
+  const stepIndicator = document.getElementById('quiz-step-indicator');
+  const qTitle = document.getElementById('quiz-q-title');
+  const qSubtitle = document.getElementById('quiz-q-subtitle');
+  const optGrid = document.getElementById('quiz-options-grid');
+
+  if (!questionBox || !resultBox) return;
+
+  if (stepIndex >= quizQuestions.length) {
+    // Show Results
+    questionBox.style.display = 'none';
+    resultBox.classList.add('active');
+    if (progressFill) progressFill.style.width = '100%';
+    renderQuizResult();
+    return;
+  }
+
+  questionBox.style.display = 'block';
+  resultBox.classList.remove('active');
+
+  const q = quizQuestions[stepIndex];
+  if (stepIndicator) stepIndicator.textContent = `ขั้นตอนที่ ${q.step} จาก 3`;
+  if (progressFill) progressFill.style.width = `${(q.step / 3) * 100}%`;
+  if (qTitle) qTitle.textContent = q.title;
+  if (qSubtitle) qSubtitle.textContent = q.subtitle;
+
+  if (optGrid) {
+    optGrid.innerHTML = '';
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt-btn';
+      btn.innerHTML = `
+        <div class="quiz-opt-icon"><i class="bi ${opt.icon}"></i></div>
+        <div>
+          <div class="quiz-opt-title">${opt.title}</div>
+          <div class="quiz-opt-desc">${opt.desc}</div>
+        </div>
+      `;
+      btn.addEventListener('click', () => {
+        userAnswers[q.step] = opt.id;
+        quizCurrentStep++;
+        renderQuizStep(quizCurrentStep);
+      });
+      optGrid.appendChild(btn);
+    });
+  }
+}
+
+function renderQuizResult() {
+  const resultImg = document.getElementById('res-rec-img');
+  const resultName = document.getElementById('res-rec-name');
+  const resultSpecs = document.getElementById('res-rec-specs');
+  const resultPrice = document.getElementById('res-rec-price');
+  const resultMatch = document.getElementById('res-match-num');
+  const resultCta = document.getElementById('res-cta-btn');
+  const resetBtn = document.getElementById('res-reset-btn');
+
+  const disruption = userAnswers[2];
+  const posture = userAnswers[1];
+  const feel = userAnswers[3];
+
+  let rec = {
+    name: 'Unnoise Pro Sound & Air',
+    img: 'assets/img/unnoise_pillow.jpg',
+    modelKey: 'pro',
+    price: '฿7,990',
+    match: '98%',
+    specs: 'แนะนำสเปก: ระดับความสูง 11 ซม. ความแน่น Medium-Firm พร้อมระบบถุงลมแก้กรนอัตโนมัติ และลำโพง Bone Conduction สำหรับเสียง Pink Noise'
+  };
+
+  if (disruption === 'travel' || feel === 'compact-light') {
+    rec = {
+      name: 'Unnoise Travel Compact',
+      img: 'assets/img/unnoise_travel.jpg',
+      modelKey: 'travel',
+      price: '฿3,490',
+      match: '96%',
+      specs: 'แนะนำสเปก: หมอนพกพาม้วนเก็บได้ รองรับคอขณะเดินทาง เซนเซอร์วัดการนอนไร้สาย ชาร์จ 1 ครั้งใช้ได้ 20 วัน'
+    };
+  } else if (disruption === 'neck' && feel === 'firm-support') {
+    rec = {
+      name: 'Unnoise Essential (Firm Support Edition)',
+      img: 'assets/img/unnoise_pillow.jpg',
+      modelKey: 'essential',
+      price: '฿4,990',
+      match: '95%',
+      specs: 'แนะนำสเปก: โครงสร้างยางพาราธรรมชาติผสมชาร์โคล ความแน่นกระชับพิเศษเพื่อรองรับกระดูกคอตรง ลดอาการตึงบ่าไหล่'
+    };
+  }
+
+  if (resultImg) resultImg.src = rec.img;
+  if (resultName) resultName.textContent = rec.name;
+  if (resultSpecs) resultSpecs.textContent = rec.specs;
+  if (resultPrice) resultPrice.textContent = rec.price;
+  if (resultMatch) resultMatch.textContent = rec.match;
+
+  if (resultCta) {
+    resultCta.onclick = (e) => {
+      e.preventDefault();
+      const modal = document.getElementById('preorder-modal');
+      const modelSelect = document.getElementById('order-model');
+      if (modelSelect) modelSelect.value = rec.modelKey;
+      const summaryPrice = document.getElementById('summary-price');
+      const summaryModel = document.getElementById('summary-model');
+      if (summaryModel) summaryModel.textContent = rec.name;
+      if (summaryPrice) summaryPrice.textContent = rec.price;
+      if (modal) modal.classList.add('active');
+    };
+  }
+
+  if (resetBtn) {
+    resetBtn.onclick = () => {
+      quizCurrentStep = 0;
+      userAnswers = {};
+      renderQuizStep(0);
+    };
+  }
 }

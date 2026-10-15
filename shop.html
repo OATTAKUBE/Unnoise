@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unnoise Store — รายการสินค้าและแบบสอบถามค้นหาหมอนที่เหมาะกับคุณ</title>
+  <meta name="description" content="เลือกซื้อหมอนสุขภาพอัจฉริยะ Unnoise พร้อมทำแบบสอบถาม Pillow Finder เพื่อค้นหารุ่นและสเปกที่ตอบโจทย์สรีระของคุณที่สุด">
+  
+  <!-- Google Fonts: Inter & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header & Navigation
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-wrap">
+        <a href="index.html" class="brand-logo" id="brand-logo">
+          <span class="brand-dot"></span>
+          <span>Unnoise</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">หน้าแรก</a></li>
+          <li><a href="index.html#simulator" class="nav-link">แดชบอร์ดจำลอง</a></li>
+          <li><a href="index.html#weekly-stats" class="nav-link">สถิติสัปดาห์ (Stats)</a></li>
+          <li><a href="index.html#community" class="nav-link">คอมมูนิตี้ (Club)</a></li>
+          <li><a href="#quiz" class="nav-link" style="color: var(--primary-blue); font-weight: 600;">ค้นหาหมอนที่เหมาะกับคุณ</a></li>
+          <li><a href="#catalog" class="nav-link">รายการสินค้า</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="#catalog" class="btn btn-primary btn-sm open-order-btn" data-model="pro">จองสิทธิ์ล่วงหน้า</a>
+          <button class="mobile-toggle" aria-label="เมนู">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         Shop Hero Section
+         ========================================================================== -->
+    <section class="section" style="padding: 60px 0 40px 0;">
+      <div class="container text-center">
+        <span class="badge badge-blue" style="margin-bottom: 16px;">
+          <i class="bi bi-bag-check-fill"></i> Unnoise Official Product Store
+        </span>
+        <h1 class="section-title" style="font-size: 2.75rem; margin-bottom: 16px;">
+          รายการสินค้า & นวัตกรรมหมอนสุขภาพ
+        </h1>
+        <p class="section-desc" style="max-width: 680px; margin: 0 auto 30px auto;">
+          เลือกสรรหมอนอัจฉริยะและอุปกรณ์เสริมที่ออกแบบมาเพื่อการนอนหลับลึกอย่างสมบูรณ์แบบ หรือทำแบบสอบถามสั้นๆ เพื่อให้ AI แนะนำสเปกที่ตรงกับสรีระคุณ
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="#quiz" class="btn btn-primary">
+            <i class="bi bi-magic"></i> ทำแบบสอบถามแนะนำหมอน (Pillow Finder)
+          </a>
+          <a href="#catalog" class="btn btn-secondary">
+            <i class="bi bi-grid"></i> ดูสินค้าทั้งหมด 4 รุ่น
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Interactive Pillow Finder Quiz Section
+         ========================================================================== -->
+    <section class="section quiz-section" id="quiz">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-navy">
+            <i class="bi bi-question-circle-fill"></i> Personalized Sleep Profiler
+          </span>
+          <h2 class="section-title">ค้นหาหมอน Unnoise ที่เหมาะกับคุณ</h2>
+          <p class="section-desc">
+            ตอบคำถามสรีระและการนอน 3 ข้อสั้นๆ ระบบจะประมวลผลแนะนำรุ่นหมอน ระดับความสูง และสเปกความแน่นที่เหมาะสมกับคุณที่สุด
+          </p>
+        </div>
+
+        <div class="quiz-card-shell" id="pillow-quiz-shell">
+          <!-- Progress Bar -->
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+
+          <!-- Question View -->
+          <div id="quiz-questions-view">
+            <div class="quiz-step-indicator" id="quiz-step-indicator">ขั้นตอนที่ 1 จาก 3</div>
+            <h3 class="quiz-question-title" id="quiz-q-title">1. ท่านอนหลักที่คุณคุ้นเคยที่สุดคือท่าใด?</h3>
+            <p class="quiz-question-subtitle" id="quiz-q-subtitle">เพื่อกำหนดระดับความสูงและแนวรองรับกระดูกต้นคอที่ถูกต้องตามหลักสรีรศาสตร์</p>
+
+            <div class="quiz-options-grid" id="quiz-options-grid">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Result View -->
+          <div class="quiz-result-view" id="quiz-result-view">
+            <div class="match-badge-wrap">
+              <i class="bi bi-stars"></i> แมตช์กับสรีระของคุณ: <span id="res-match-num">98%</span>
+            </div>
+
+            <div class="result-card-inner">
+              <div class="result-rec-grid">
+                <img src="assets/img/unnoise_pillow.jpg" alt="Recommended Model" class="result-rec-img" id="res-rec-img">
+                <div>
+                  <h4 class="result-rec-name" id="res-rec-name">Unnoise Pro Sound & Air</h4>
+                  <p class="result-rec-specs" id="res-rec-specs">
+                    แนะนำสเปก: ระดับความสูง 11 ซม. ความแน่น Medium-Firm พร้อมระบบถุงลมแก้กรนอัตโนมัติ และลำโพง Bone Conduction
+                  </p>
+                  <div class="result-rec-price" id="res-rec-price">฿7,990</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <button class="btn btn-primary" id="res-cta-btn">
+                <i class="bi bi-cart-check"></i> จองรุ่นที่แนะนำทันที
+              </button>
+              <button class="btn btn-secondary" id="res-reset-btn">
+                <i class="bi bi-arrow-counterclockwise"></i> ทำแบบสอบถามใหม่อีกครั้ง
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Product Catalog Grid Section
+         ========================================================================== -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-blue">
+            <i class="bi bi-tags-fill"></i> Unnoise Complete Collection
+          </span>
+          <h2 class="section-title">แคตตาล็อกสินค้าทั้งหมด</h2>
+          <p class="section-desc">
+            ทุกผลิตภัณฑ์ผ่านการทดสอบมาตรฐานทางการยศาสตร์และชีววิทยา เพื่อให้ทุกการนอนหลับของคุณมีประสิทธิภาพสูงสุด
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <button class="filter-pill active" data-filter="all">ทั้งหมด (4)</button>
+          <button class="filter-pill" data-filter="smart">หมอนอัจฉริยะ (2)</button>
+          <button class="filter-pill" data-filter="travel">หมอนพกพา (1)</button>
+          <button class="filter-pill" data-filter="accessory">อุปกรณ์เสริม (1)</button>
+        </div>
+
+        <!-- Shop Grid -->
+        <div class="shop-grid">
+          <!-- Product 1: Pro Sound & Air -->
+          <div class="product-shop-card" data-category="smart">
+            <div class="product-thumb-wrap">
+              <span class="product-category-tag">เรือธง &bull; Best Value</span>
+              <img src="assets/img/unnoise_pillow.jpg" alt="Unnoise Pro Sound & Air">
+            </div>
+            <div class="product-shop-body">
+              <h3 class="product-shop-title">Unnoise Pro Sound & Air</h3>
+              <p class="product-shop-desc">
+                หมอนอัจฉริยะรุ่นท็อปฟูลออปชัน พร้อมระบบถุงลมไมโครแอร์แบ็กปรับระดับความสูงแก้เสียงกรนอัตโนมัติ และลำโพงคลื่นกระดูกส่งเสียง White/Pink Noise บำบัด
+              </p>
+
+              <ul class="product-short-specs">
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> เซนเซอร์วัดคลื่นหัวใจ BCG Micro-vibration</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ระบบถุงลม Auto-Elevation ยกศีรษะเปิดทางเดินหายใจ</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ลำโพง Bone-Conduction + ซิงค์สถิติ Strava Feed</li>
+              </ul>
+
+              <div class="product-bottom-action">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--text-light); display: block;">ราคาจำหน่าย</span>
+                  <span class="product-price-display">฿7,990</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-order-btn" data-model="pro">
+                  <i class="bi bi-bag-plus"></i> จองสินค้า
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2: Essential -->
+          <div class="product-shop-card" data-category="smart">
+            <div class="product-thumb-wrap">
+              <span class="product-category-tag">รุ่นมาตรฐาน</span>
+              <img src="assets/img/unnoise_pillow.jpg" alt="Unnoise Essential">
+            </div>
+            <div class="product-shop-body">
+              <h3 class="product-shop-title">Unnoise Essential</h3>
+              <p class="product-shop-desc">
+                หมอนสุขภาพอัจฉริยะรุ่นเริ่มต้น สำหรับผู้ที่ต้องการบันทึกสถิติการเต้นของหัวใจ รอบการหายใจ และระยะหลับลึกอย่างแม่นยำโดยไม่ต้องสวมใส่นาฬิกา
+              </p>
+
+              <ul class="product-short-specs">
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ตรวจวัดชีวสัญญาณการนอน 4 สเตจแม่นยำ 99.2%</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> โฟมยางพาราธรรมชาติผสมชาร์โคลลดไรฝุ่น</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> แบตเตอรี่ Ultra-Low Power ใช้งานได้ 30 วัน/ชาร์จ</li>
+              </ul>
+
+              <div class="product-bottom-action">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--text-light); display: block;">ราคาจำหน่าย</span>
+                  <span class="product-price-display">฿4,990</span>
+                </div>
+                <button class="btn btn-secondary btn-sm open-order-btn" data-model="essential">
+                  <i class="bi bi-bag-plus"></i> จองสินค้า
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3: Travel Compact -->
+          <div class="product-shop-card" data-category="travel">
+            <div class="product-thumb-wrap">
+              <span class="product-category-tag">พกพาเดินทาง &bull; New</span>
+              <img src="assets/img/unnoise_travel.jpg" alt="Unnoise Travel Compact">
+            </div>
+            <div class="product-shop-body">
+              <h3 class="product-shop-title">Unnoise Travel Compact</h3>
+              <p class="product-shop-desc">
+                หมอนสุขภาพม้วนพับได้ขนาดกะทัดรัด พร้อมสายรัดแม่เหล็ก ออกแบบมาเพื่อนักเดินทางและนักกีฬา รักษาคุณภาพการนอนแม้อยู่นอกสถานที่
+              </p>
+
+              <ul class="product-short-specs">
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ม้วนพับประหยัดพื้นที่ 60% พร้อมกระเป๋ากันน้ำ</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> เซนเซอร์วัดการนอนหลับไร้สายเชื่อมต่อบลูทูธ</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> น้ำหนักเบาเพียง 680 กรัม คืนรูปทันทีเมื่อกางออก</li>
+              </ul>
+
+              <div class="product-bottom-action">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--text-light); display: block;">ราคาจำหน่าย</span>
+                  <span class="product-price-display">฿3,490</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-order-btn" data-model="travel">
+                  <i class="bi bi-bag-plus"></i> จองสินค้า
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4: Cooling Silk Pillowcase -->
+          <div class="product-shop-card" data-category="accessory">
+            <div class="product-thumb-wrap">
+              <span class="product-category-tag">อุปกรณ์เสริมพรีเมียม</span>
+              <img src="assets/img/unnoise_case.jpg" alt="Unnoise Cooling Silk Pillowcase">
+            </div>
+            <div class="product-shop-body">
+              <h3 class="product-shop-title">Unnoise Cooling Silk Pillowcase</h3>
+              <p class="product-shop-desc">
+                ปลอกหมอนใยไหมแท้เกรด 6A ผสมผสานเส้นใย Tencel และเทคโนโลยี Cooling Gel ให้สัมผัสนุ่มลื่น เย็นสบาย อ่อนโยนต่อผิวหน้าและเส้นผม
+              </p>
+
+              <ul class="product-short-specs">
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ลดอุณหภูมิผิวสัมผัส 1.5°C ช่วยให้หลับเร็วขึ้น</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ซักทำความสะอาดง่าย ป้องกันไฟฟ้าสถิต</li>
+                <li class="spec-bullet"><i class="bi bi-check-circle-fill"></i> ออกแบบพอดีกับหมอน Unnoise ทุกรุ่น</li>
+              </ul>
+
+              <div class="product-bottom-action">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--text-light); display: block;">ราคาจำหน่าย</span>
+                  <span class="product-price-display">฿1,290</span>
+                </div>
+                <button class="btn btn-secondary btn-sm open-order-btn" data-model="case">
+                  <i class="bi bi-bag-plus"></i> จองสินค้า
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Pre-order / Reservation Modal
+       ========================================================================== -->
+  <div class="modal-overlay" id="preorder-modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="ปิดหน้าต่าง">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <h3 class="modal-title">แบบฟอร์มจำลองการสั่งจอง</h3>
+      <p class="modal-desc">โมเดลระบบสั่งซื้อล่วงหน้า สำหรับนำเสนอโครงงานต่ออาจารย์</p>
+
+      <form id="preorder-form">
+        <div class="form-group">
+          <label class="form-label" for="order-model">เลือกรุ่นสินค้า</label>
+          <select class="form-select" id="order-model">
+            <option value="pro">Unnoise Pro Sound & Air (฿7,990)</option>
+            <option value="essential">Unnoise Essential (฿4,990)</option>
+            <option value="travel">Unnoise Travel Compact (฿3,490)</option>
+            <option value="case">Unnoise Cooling Silk Pillowcase (฿1,290)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="order-firmness">ระดับความแน่นของหมอน / สเปก</label>
+          <select class="form-select" id="order-firmness">
+            <option value="medium">ความแน่นปานกลาง (Medium Ergonomic - แนะนำ)</option>
+            <option value="soft">นุ่มละมุน คลายกล้ามเนื้อ (Soft Touch)</option>
+            <option value="firm">แน่นกระชับ รองรับคอพิเศษ (Firm Support)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="order-name">ชื่อผู้สั่งจอง (สำหรับทดสอบ)</label>
+          <input type="text" class="form-input" id="order-name" placeholder="เช่น อาจารย์ หรือชื่อผู้ทดสอบ" value="อาจารย์ผู้ตรวจประเมิน" required>
+        </div>
+
+        <div class="order-summary-box">
+          <div class="summary-row">
+            <span>รุ่นที่เลือก:</span>
+            <span id="summary-model">Unnoise Pro Sound & Air</span>
+          </div>
+          <div class="summary-row">
+            <span>ค่าจัดส่ง:</span>
+            <span style="color: var(--primary-blue);">ฟรี (Special Offer)</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span>ยอดชำระจำลอง:</span>
+            <span id="summary-price" style="color: var(--primary-navy);">฿7,990</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <i class="bi bi-bag-check"></i> ยืนยันการส่งข้อมูลแบบจำลอง
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">
+            <span class="brand-dot"></span> Unnoise
+          </div>
+          <p class="footer-desc">
+            โครงการพัฒนาต้นแบบธุรกิจและหน้าเว็บไซต์หมอนสุขภาพอัจฉริยะ นวัตกรรมการตรวจวัดการนอนและตัดเสียงรบกวน พร้อมระบบสถิติและคอมมูนิตี้การนอนสไตล์ Strava
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">เมนูระบบจำลอง</div>
+          <ul class="footer-links">
+            <li><a href="index.html">หน้าแรก (Landing Page)</a></li>
+            <li><a href="index.html#simulator">แดชบอร์ดจำลองสุขภาพ</a></li>
+            <li><a href="index.html#weekly-stats">สถิติสัปดาห์ (Weekly Stats)</a></li>
+            <li><a href="index.html#community">Unnoise Sleep Club</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">หน้าร้านค้า</div>
+          <ul class="footer-links">
+            <li><a href="#quiz">แบบสอบถาม Pillow Finder</a></li>
+            <li><a href="#catalog">แคตตาล็อกสินค้าทั้งหมด</a></li>
+            <li><a href="docs/requirements.md">Requirements Spec</a></li>
+            <li><a href="docs/design.md">Design System Spec</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">ข้อมูลโครงงาน</div>
+          <p style="font-size: 0.88rem; line-height: 1.6; color: #94A3B8;">
+            จัดทำขึ้นเพื่อการศึกษาและการนำเสนอผลงานโมเดลธุรกิจ (UI Prototype Model)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Unnoise Sleep Technologies. All rights reserved. (Academic Prototype Model)</div>
+        <div>Minimalist Navy & White Theme &bull; Strava Sleep Community &bull; Web Audio API</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
