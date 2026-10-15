@@ -376,18 +376,83 @@ img {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
-  background-color: #E2E8F0;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
 .hero-img-wrapper img {
   width: 100%;
-  height: 480px;
-  object-fit: cover;
+  height: 440px;
+  object-fit: contain;
   transition: transform 0.6s ease;
+  filter: drop-shadow(0 14px 28px rgba(30, 58, 138, 0.12));
 }
 
 .hero-img-wrapper:hover img {
-  transform: scale(1.025);
+  transform: scale(1.03);
+}
+
+/* Multi-layer Showcase Grid */
+.layers-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.layers-img-wrap {
+  background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.layers-img-wrap img {
+  width: 100%;
+  height: 440px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(15, 23, 42, 0.12));
+  transition: transform 0.5s ease;
+}
+
+.layers-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.layer-step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: var(--transition);
+}
+
+.layer-step-card:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.layer-num-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary-blue-light);
+  color: var(--primary-blue);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
 }
 
 /* Floating Metric Badges in Hero */
@@ -1837,6 +1902,10 @@ img {
   }
   .sound-grid {
     grid-template-columns: 1fr;
+  }
+  .layers-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;

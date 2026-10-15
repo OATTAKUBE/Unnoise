@@ -1,17 +1,30 @@
-# Requirements Specification: Unnoise Smart Sleep Pillow & E-Commerce (v3.0)
+# Requirements Specification: Unnoise (v4.0 Sales-First)
 
-**โปรเจกต์**: Unnoise Smart Sleep Pillow (UI Model v3.0)  
+**โปรเจกต์**: Unnoise Commercial Website (Sales-First Experience)  
 **วันที่**: 2026-10-16  
 
 ---
 
-## 1. ขอบเขตหน้าร้านค้าและรายการสินค้า (`shop.html`)
-1. **Product Catalog Grid**:
-   - แสดงรายการสินค้าทั้งหมด 4 รายการ (Unnoise Essential, Unnoise Pro, Unnoise Travel, Cooling Silk Pillowcase)
-   - ข้อมูลแต่ละชิ้น: รูปภาพสินค้า, ป้ายหมวดหมู่, คุณสมบัติเด่น 3 ข้อ, ราคา, สเปกความแน่น และปุ่มสั่งซื้อ
-   - Filter Tabs: สินค้าทั้งหมด, หมอนอัจฉริยะ (Smart Pillows), พกพา (Travel), อุปกรณ์เสริม (Accessories)
-2. **Interactive Pillow Finder Quiz (ระบบแนะนำหมอนที่เหมาะกับคุณ)**:
-   - ผู้ใช้ตอบคำถาม 3 ข้อสั้นๆ (ท่านอน, ปัญหาการนอน, ความแน่นที่ชอบ)
-   - หน้าจอแสดงผลคำนวณ Match Percentage, แนะนำสเปกรุ่นที่ตอบโจทย์ที่สุด และปุ่มกดสั่งจองสินค้าทันที
-3. **Cross-Navigation**:
-   - Header & Footer มีลิงก์สลับไปมาระหว่างหน้าแรก (`index.html`) และหน้าร้านค้า (`shop.html`)
+## 1. การจัดวางโครงสร้างหน้าแรกแบบเน้นการขาย (Sales-First Page Hierarchy)
+1. **Header**: โลโก้ Unnoise + ลิงก์ไปยัง สินค้า, ค้นหาหมอน, สถิติ Strava, แดชบอร์ด + ปุ่ม "สั่งซื้อทันที"
+2. **Hero Section**:
+   - ใช้ภาพหมอนจริงคู่แอปพลิเคชันมือถือ (`assets/img/unnoise_app_pillow.png`)
+   - Headline เน้นการขาย: "หมอนอัจฉริยะที่รู้ใจสรีระคุณ ซิงค์ทุกข้อมูลสุขภาพสู่สมาร์ทโฟน"
+   - ราคาและโปรโมชันพิเศษ พร้อมปุ่มสั่งซื้อและปุ่มค้นหารุ่นที่เหมาะกับคุณ
+3. **Featured Products (หน้ารายการสินค้าบนหน้าแรก)**:
+   - นำเสนอหมอน Unnoise ทั้ง 2 รุ่นหลัก:
+     - **Unnoise Smart Pillow with App Hub** (฿7,990)
+     - **Unnoise Modular Multi-Layer Pillow** (฿4,990)
+     - พร้อมรุ่น Travel และ ปลอกหมอนใยไหม
+   - ปุ่มสั่งซื้อทันที เปิดป๊อปอัปสรุปออเดอร์
+4. **Interactive Pillow Finder Quiz (ระบบช่วยเลือกหมอน)**:
+   - ควิซ 3 ขั้นตอนแนะนำรุ่นและสเปก
+5. **Modular 4-Layer Ergonomics (ผสานภาพ `unnoise_layers.png`)**:
+   - อธิบายฟังก์ชันถอดปรับความสูงได้ 4 ชั้น พร้อมภาพ Exploded Layer จริง
+6. **Sleep Analytics & Strava Community**:
+   - สถิติการนอนรายสัปดาห์ (Weekly Volume) และ Unnoise Sleep Club Feed พร้อมปุ่ม Kudos
+7. **Sound Therapy Simulator**:
+   - ระบบเสียง White/Pink Noise
+8. **Commercial Footer**:
+   - ลบข้อมูลเอกสารโครงงานออกทั้งหมด
+   - แสดงนโยบายรับประกัน 1 ปี, ส่งฟรีทั่วไทย, ทดลองนอน 30 คืน และช่องทางติดต่อ

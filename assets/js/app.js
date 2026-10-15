@@ -728,8 +728,8 @@ function renderQuizResult() {
   const feel = userAnswers[3];
 
   let rec = {
-    name: 'Unnoise Pro Sound & Air',
-    img: 'assets/img/unnoise_pillow.jpg',
+    name: 'Unnoise Smart Sleep Pillow with App Hub',
+    img: 'assets/img/unnoise_app_pillow.png',
     modelKey: 'pro',
     price: '฿7,990',
     match: '98%',
@@ -745,14 +745,14 @@ function renderQuizResult() {
       match: '96%',
       specs: 'แนะนำสเปก: หมอนพกพาม้วนเก็บได้ รองรับคอขณะเดินทาง เซนเซอร์วัดการนอนไร้สาย ชาร์จ 1 ครั้งใช้ได้ 20 วัน'
     };
-  } else if (disruption === 'neck' && feel === 'firm-support') {
+  } else if (disruption === 'neck' || feel === 'firm-support' || feel === 'custom-layers') {
     rec = {
-      name: 'Unnoise Essential (Firm Support Edition)',
-      img: 'assets/img/unnoise_pillow.jpg',
+      name: 'Unnoise Modular Multi-Layer Pillow',
+      img: 'assets/img/unnoise_layers.png',
       modelKey: 'essential',
       price: '฿4,990',
-      match: '95%',
-      specs: 'แนะนำสเปก: โครงสร้างยางพาราธรรมชาติผสมชาร์โคล ความแน่นกระชับพิเศษเพื่อรองรับกระดูกคอตรง ลดอาการตึงบ่าไหล่'
+      match: '96%',
+      specs: 'แนะนำสเปก: โครงสร้าง 4 ชั้นปรับระดับความหนาได้ตามต้องการ ลดอาการปวดคอบ่าไหล่ พร้อมเซนเซอร์วัดการนอนหลับ BCG ไร้สาย'
     };
   }
 
